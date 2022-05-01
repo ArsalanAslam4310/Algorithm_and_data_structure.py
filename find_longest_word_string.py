@@ -12,16 +12,26 @@ find_longest_word_length("What is the average airspeed velocity of an unladen sw
 
 find_longest_word_length("What if we try a super-long word such as otorhinolaryngology") should return 19.
 '''
-def find_longest_word_length(lis):
+def find_longest_word_length(string):
     '''
-    find longest word in string
+    find large word lenght in string
     '''
-    maximum = len(lis)
+    maximum = 0
+    sub_stri_leng = 0
+    j = 0
 
-    for word in lis:
-        if len(word)>maximum:
-            maximum= len(word)
+    for i in range(len(string)):
+        j = i
+        sub_stri_leng = 0
+
+        while string[j] != " " and j < len(string)-1:
+            j += 1
+            sub_stri_leng += 1
+            if sub_stri_leng > maximum:
+                maximum = sub_stri_leng
+
     return maximum
 
-li=["dbxjh","hdbxjhnb","jasbxnxb","xbzjhbsdjhxgujhdb","dbxn"]
-print(find_longest_word_length(li))
+
+stri = "dbxjh hdbxjhnb jasbxnxb xbzjhbsdjhxgujhdb dbxn"
+print(find_longest_word_length(stri))
